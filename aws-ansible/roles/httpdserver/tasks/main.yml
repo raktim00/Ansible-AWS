@@ -1,0 +1,14 @@
+---
+# tasks file for httpdserver
+- name: install httpd
+  package:
+        name: httpd
+        state: present
+- name: copy code
+  get_url:
+          url: https://raw.githubusercontent.com/raktim00/DevOpsHW/master/index.html
+          dest: "/var/www/html/index.html"
+- name: start httpd
+  service:
+          name: httpd
+          state: started
